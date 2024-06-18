@@ -14,9 +14,16 @@ export const POST = async (req: NextRequest) => {
     scopes: [
       {
         type: 'DATASOURCES:READ',
-        resource: 'ea47fd9d-bc48-420d-a6f6-95481fbb3f7c',
+        resource: 't_9dbec3b1e5fb44999e26418aa366ba28',
         fixed_params: {
-          org_id: 'vercel',
+          organization_id: 'vercel.com',
+        },
+      },
+      {
+        type: 'DATASOURCES:READ',
+        resource: 't_371da1d18a0345d4ac91cf1f1fc0eab5',
+        fixed_params: {
+          organization_id: 'vercel.com',
         },
       },
     ],
