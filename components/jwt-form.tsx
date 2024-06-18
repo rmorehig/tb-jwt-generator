@@ -31,28 +31,17 @@ export function JwtForm({ onSubmit }: { onSubmit: (jwt: string) => void }) {
     },
   })
 
-  function generateJwt(values: z.infer<typeof formSchema>) {
+  async function generateJwt(values: z.infer<typeof formSchema>) {
     const { workspace_id, signing_key, name } = values
 
-    const next10minutes = new Date()
-    next10minutes.setTime(next10minutes.getTime() + 1000 * 60 * 10)
-
-    const payload = {
-      workspace_id,
-      name,
-      exp: next10minutes.getTime() / 1000,
-      scopes: [
-        {
-          type: 'DATASOURCES:READ',
-          resource: 'ea47fd9d-bc48-420d-a6f6-95481fbb3f7c',
-          fixed_params: {
-            org_id: 'vercel',
-          },
-        },
-      ],
-    }
-    const result = jwt.sign(payload, signing_key)
-    onSubmit(result)
+    const { jwt } = await fetch('/api/jwt', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ workspace_id, signing_key, name }),
+    }).then(res => res.json())
+    onSubmit(jwt)
   }
 
   return (
