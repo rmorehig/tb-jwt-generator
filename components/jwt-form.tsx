@@ -38,7 +38,7 @@ export function JwtForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
         <FormField
           control={form.control}
           name="workspace_id"
@@ -48,7 +48,6 @@ export function JwtForm() {
               <FormControl>
                 <Input {...field} />
               </FormControl>
-              <FormDescription></FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -62,7 +61,6 @@ export function JwtForm() {
               <FormControl>
                 <Input {...field} />
               </FormControl>
-              <FormDescription></FormDescription>
               <FormMessage />
             </FormItem>
           )}
