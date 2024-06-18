@@ -7,7 +7,7 @@ export default function Home() {
       <h1 className="text-3xl font-bold text-left text-secondary-foreground w-[400px]">
         Tinybird JWT Generator
       </h1>
-      <div className="flex flex-col items-center space-y-4 w-[400px]">
+      <div className="flex flex-col items-center space-y-8 w-[400px]">
         <JwtForm />
         <JwtResult />
       </div>
