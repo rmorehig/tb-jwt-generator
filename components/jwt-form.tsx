@@ -17,8 +17,8 @@ import {
 import { Input } from '@/components/ui/input'
 
 const formSchema = z.object({
-  workspace_id: z.string().min(1),
-  name: z.string().min(1),
+  workspace_id: z.string().min(1, 'Field is required'),
+  name: z.string().min(1, 'Field is required'),
 })
 
 export function JwtForm() {
