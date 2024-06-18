@@ -8,7 +8,6 @@ import { Button } from '@/components/ui/button'
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -18,6 +17,7 @@ import { Input } from '@/components/ui/input'
 
 const formSchema = z.object({
   workspace_id: z.string().min(1, 'Field is required'),
+  signing_key: z.string().min(1, 'Field is required'),
   name: z.string().min(1, 'Field is required'),
 })
 
@@ -26,6 +26,7 @@ export function JwtForm() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: '',
+      signing_key: '',
       workspace_id: '',
     },
   })
@@ -48,7 +49,18 @@ export function JwtForm() {
               <FormControl>
                 <Input {...field} />
               </FormControl>
-              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="signing_key"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Signing key</FormLabel>
+              <FormControl>
+                <Input {...field} />
+              </FormControl>
             </FormItem>
           )}
         />
@@ -61,7 +73,6 @@ export function JwtForm() {
               <FormControl>
                 <Input {...field} />
               </FormControl>
-              <FormMessage />
             </FormItem>
           )}
         />
