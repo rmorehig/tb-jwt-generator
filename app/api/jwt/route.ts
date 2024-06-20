@@ -13,17 +13,10 @@ export const POST = async (req: NextRequest) => {
     exp: next10minutes.getTime() / 1000,
     scopes: [
       {
-        type: 'DATASOURCES:READ',
-        resource: 't_9dbec3b1e5fb44999e26418aa366ba28',
+        type: 'PIPE:READ',
+        resource: 'resource_id',
         fixed_params: {
-          organization_id: 'vercel.com',
-        },
-      },
-      {
-        type: 'DATASOURCES:READ',
-        resource: 't_371da1d18a0345d4ac91cf1f1fc0eab5',
-        fixed_params: {
-          organization_id: 'vercel.com',
+          organization_id: 'my_org_id',
         },
       },
     ],
